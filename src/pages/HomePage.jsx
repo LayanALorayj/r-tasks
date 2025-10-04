@@ -24,7 +24,7 @@ const HomePage = () => {
       <br />
       <hr />
       <h2 className={style.products}>Products</h2>
-      <div className="row">
+      <div className="card-container">
         {products.map((product) => (
           <div key={product.id} className="col-md-4 col-sm-6 mb-3">
             <ProductCard product={product} />
