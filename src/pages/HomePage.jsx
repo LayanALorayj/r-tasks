@@ -3,11 +3,12 @@ import { useProducts } from '../hooks/useProducts';
 import Counter from '../components/ui/Counter';
 import ProductCard from '../components/ui/ProductCard';
 import style from '../style.module.css';
+import { VisibleContent } from '../components/ui/ToggleText'; 
 
 const HomePage = () => {
-  const { count, multipliedValue, increment } = useCounter(0, 2);
+  const { count, multipliedValue, increment, reset } = useCounter(0, 2); 
   const { products, loading, error } = useProducts();
-
+  
   if (loading) {
     return <div>Loading products...</div>;
   }
@@ -18,8 +19,14 @@ const HomePage = () => {
 
   return (
     <>
-      <h3>Counter * 2 = {multipliedValue}</h3>
-      <Counter count={count} increment={increment} />
+      <VisibleContent 
+          initialText="Show Counter" 
+          hiddenText="Hide Counter"
+          buttonVariant="warning" 
+      >
+        <h3>Counter * 2 = {multipliedValue}</h3>
+        <Counter count={count} increment={increment} reset={reset} /> 
+      </VisibleContent>
 
       <br />
       <hr />

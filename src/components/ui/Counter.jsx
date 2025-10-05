@@ -1,16 +1,23 @@
 import Button from './Button';
 
-const Counter = ({ count, increment }) => {
+const Counter = ({ count, increment, reset }) => { 
   return (
     <div className="center">
       <h3 className="click">number of click: {count}</h3>
-      <Button 
-        variant="secondary" 
-        onClick={increment}
-        type="reset"
-      >
-        click
-      </Button>
+      <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+        <Button 
+          variant="secondary" 
+          onClick={increment}
+        >
+          click
+        </Button>
+        <Button 
+          variant="danger" 
+          onClick={reset} 
+        >
+          Reset & Clear Storage
+        </Button>
+      </div>
     </div>
   );
 };

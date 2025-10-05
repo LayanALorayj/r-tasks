@@ -1,20 +1,26 @@
-import { useToggle } from '../../hooks/useToggle';
+import { useToggle } from '../../hooks/useToggle'; 
 import Button from './Button';
 
-const ToggleText = () => {
-  const { isVisible, toggle } = useToggle(true);
+export const VisibleContent = ({ 
+    children, 
+    initialText = "Show", 
+    hiddenText = "Hide",
+    buttonVariant = "secondary" 
+}) => {
+  const { isVisible, toggle } = useToggle(true); 
 
   return (
-    <div>
-      {isVisible && <p className="text">hi</p>}
+    <div style={{ marginBottom: '10px' }}>
+      
+      {isVisible && children} 
+      
       <Button 
-        variant="secondary" 
+        variant={buttonVariant} 
         onClick={toggle}
+        style={{ marginTop: '10px' }}
       >
-        {isVisible ? "hide" : "show"}
+        {isVisible ? hiddenText : initialText}
       </Button>
     </div>
   );
 };
-
-export default ToggleText;
