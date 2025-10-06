@@ -1,5 +1,5 @@
 import React from 'react';
-import { VisibleContent } from '../components/ui/ToggleText'; 
+import  VisibleContent  from '../components/ui/ToggleText'; 
 
 const AboutPage = () => {
   return (

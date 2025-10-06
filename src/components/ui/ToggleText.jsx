@@ -1,13 +1,27 @@
-import { useToggle } from '../../hooks/useToggle'; 
+import { useState } from 'react';
 import Button from './Button';
 
-export const VisibleContent = ({ 
+
+const VisibleContent = ({ 
     children, 
     initialText = "Show", 
     hiddenText = "Hide",
     buttonVariant = "secondary" 
 }) => {
-  const { isVisible, toggle } = useToggle(true); 
+   const [isVisible, setIsVisible] = useState(false);
+
+  const toggle = () => {
+    setIsVisible(prev => !prev);
+  };
+
+  const show = () => {
+    setIsVisible(true);
+  };
+
+  const hide = () => {
+    setIsVisible(false);
+  };
+
 
   return (
     <div style={{ marginBottom: '10px' }}>
@@ -24,3 +38,4 @@ export const VisibleContent = ({
     </div>
   );
 };
+export default VisibleContent;
